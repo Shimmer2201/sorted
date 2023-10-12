@@ -8,26 +8,26 @@ def shell_sort(arr):
     global comparisons
     global swaps
     n = len(arr)
-    gap = n//2
+    gap = n // 2
 
     while gap > 0:
         for i in range(gap, n):
             temp = arr[i]
             j = i
-            while j >= gap and arr[j-gap] > temp:
+            while j >= gap and arr[j - gap] > temp:
                 comparisons += 1
-                arr[j] = arr[j-gap]
+                arr[j] = arr[j - gap]
                 j -= gap
+            if j != i:
+                arr[j] = temp
                 swaps += 1
-            arr[j] = temp
         gap //= 2
 
     return arr
-
 def sort_matrix(matrix):
     n = len(matrix)
 
-    # сортровка строк
+    # сортировка строк
     for i in range(n):
         matrix[i] = shell_sort(matrix[i])
 
@@ -38,6 +38,7 @@ def sort_matrix(matrix):
         for i in range(n):
             matrix[i][j] = col[i]
 
+   
     return matrix
 
 # создание рандонмной матрицы размером 1000 на 1000
