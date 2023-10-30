@@ -52,6 +52,7 @@ data2 = read_file("file2.txt")
 union_data = list(set(data1).union(set(data2)))
 intersection_data = list(set(data1).intersection(set(data2)))
 difference_data = list(set(data1).difference(set(data2)))
+simmetricdifference_data = list(set(data1).symmetric_difference(set(data2)))
 
 # Замеры времени, сравнений и перестановок
 total_time = 0
@@ -85,10 +86,20 @@ total_time += difference_time
 total_comparisons += comparisons
 total_swaps += swaps
 
+# Сортировка и замер времени для simmetricdifference_data
+start_time = time.time()
+comparisons, swaps = shell_sort(simmetricdifference_data)
+end_time = time.time()
+simmetricdifference_time = end_time - start_time
+total_time += simmetricdifference_time
+total_comparisons += comparisons
+total_swaps += swaps
+
 # Запись результатов в файлы
 write_to_file("sorted_union.txt", union_data)
 write_to_file("sorted_intersection.txt", intersection_data)
 write_to_file("sorted_difference.txt", difference_data)
+write_to_file("simmetricdifference.txt",simmetricdifference_data)
 
 print("Общее время:", total_time)
 print("Общее количество перестановок:", total_swaps)
