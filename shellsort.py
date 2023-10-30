@@ -24,6 +24,8 @@ def shell_sort(arr):
         gap //= 2
 
     return arr
+
+
 def sort_matrix(matrix):
     n = len(matrix)
 
@@ -41,18 +43,15 @@ def sort_matrix(matrix):
    
     return matrix
 
-# создание рандонмной матрицы размером 1000 на 1000
-n = 100
+# создание рандонмной матрицы размером 2500 на 2500
+n = 2500
 matrix = [[random.randint(0, 100000) for _ in range(n)] for _ in range(n)]
 
 start_time = time.time()
 sorted_matrix = sort_matrix(matrix)
 end_time = time.time()
 
-# Вывод первых 10x10 элементов отсортированной матрицы для проверки
-for i in range(10):
-    print(sorted_matrix[i][:10])
-
+print("Шелла")
 print("Время работы:", end_time - start_time)
 print("Число сравнений", comparisons)
 print("Количество перестановок", swaps)
