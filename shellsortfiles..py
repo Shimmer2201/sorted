@@ -61,39 +61,58 @@ total_swaps = 0
 
 # Сортировка и замер времени для union_data
 start_time = time.time()
-comparisons, swaps = shell_sort(union_data)
+union_comparisons, union_swaps = shell_sort(union_data)
 end_time = time.time()
 union_time = end_time - start_time
 total_time += union_time
-total_comparisons += comparisons
-total_swaps += swaps
+total_comparisons += union_comparisons
+total_swaps += union_swaps
+print("Сортировка Шелла")
+print("Объединения")
+print("Время сортировки:", union_time)
+print("Количество перестановок:", union_swaps)
+print("Количество сравнений:", union_comparisons, "\n")
+
 
 # Сортировка и замер времени для intersection_data
 start_time = time.time()
-comparisons, swaps = shell_sort(intersection_data)
+intersection_comparisons, intersection_swaps = shell_sort(intersection_data)
 end_time = time.time()
 intersection_time = end_time - start_time
 total_time += intersection_time
-total_comparisons += comparisons
-total_swaps += swaps
+total_comparisons += intersection_comparisons
+total_swaps += intersection_swaps
+print("Пересечения")
+print("Время сортировки:", intersection_time)
+print("Количество перестановок:", intersection_swaps)
+print("Количество сравнений:", intersection_comparisons, "\n")
 
 # Сортировка и замер времени для difference_data
 start_time = time.time()
-comparisons, swaps = shell_sort(difference_data)
+difference_comparisons, difference_swaps = shell_sort(difference_data)
 end_time = time.time()
 difference_time = end_time - start_time
 total_time += difference_time
-total_comparisons += comparisons
-total_swaps += swaps
+total_comparisons += difference_comparisons
+total_swaps += difference_swaps
+print("Разность")
+print("Время сортировки:", difference_time)
+print("Количество перестановок:", difference_swaps)
+print("Количество сравнений:", difference_comparisons, "\n")
 
 # Сортировка и замер времени для simmetricdifference_data
 start_time = time.time()
-comparisons, swaps = shell_sort(simmetricdifference_data)
+simmetricdifference_comparisons, simmetricdefference_swaps = shell_sort(simmetricdifference_data)
 end_time = time.time()
 simmetricdifference_time = end_time - start_time
 total_time += simmetricdifference_time
-total_comparisons += comparisons
-total_swaps += swaps
+total_comparisons += simmetricdifference_comparisons
+total_swaps += simmetricdefference_swaps
+print("Симметричная разность")
+print("Время сортировки:", simmetricdifference_time)
+print("Количество перестановок:", simmetricdefference_swaps)
+print("Количество сравнений:", simmetricdifference_comparisons, "\n") 
+
 
 # Запись результатов в файлы
 write_to_file("sorted_union.txt", union_data)
