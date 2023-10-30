@@ -58,18 +58,15 @@ def sort_matrix(matrix):
     return matrix
 
 
-# Создание случайной матрицы размером 1000x1000
-n = 100
+# Создание случайной матрицы размером 2500x2500
+n = 2500
 matrix = [[random.randint(0, 100000) for _ in range(n)] for _ in range(n)]
 
 start_time = time.time()
 sorted_matrix = sort_matrix(matrix)
 end_time = time.time()
 
-# Вывод первых 10x10 элементов отсортированной матрицы для проверки
-for i in range(10):
-    print(sorted_matrix[i][:10])
-
+print("Слиянием")
 print("Время работы:", end_time - start_time)
 print("Число сравнений:", comparisons)
 print("Число перестановок:", swaps)
