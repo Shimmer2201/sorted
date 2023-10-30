@@ -28,13 +28,18 @@ def shell_sort(arr):
 
 # Создание случайного массива размером 2500
 n = 2500
-arr = [random.randint(0, 100000) for _ in range(n)]
+arr1 = [random.randint(0, 100000) for _ in range(n)]
+arr2 = [random.randint(0, 100000) for _ in range(n)]
 
+sorted_arr1 = shell_sort(arr1)
+sorted_arr2 = shell_sort(arr2)
+
+arr3 = sorted_arr1 + sorted_arr2
 start_time = time.time()
-shell_sort(arr)
+sorted_arr3 = shell_sort(arr3)
 end_time = time.time()
 
-print("Первые 10 элементов отсортированного массива:", arr[:10])
+print("Шелла")
 print("Время работы:", end_time - start_time)
 print("Число сравнений:", comparisons)
 print("Число перестановок:", swaps)
