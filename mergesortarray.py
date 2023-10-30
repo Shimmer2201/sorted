@@ -28,9 +28,9 @@ def merge(left, right):
         else:
             result.append(right[right_idx])
             right_idx += 1
-            swaps += 1  # Учитываем перестановку элемента из правой половины в результат
+            swaps += 1
 
-    # Добавляем оставшиеся элементы из левой и правой половины без дополнительных перестановок
+    # Добавляем оставшиеся элементы
     if left_idx < len(left):
         result.extend(left[left_idx:])
     if right_idx < len(right):
@@ -38,15 +38,21 @@ def merge(left, right):
 
     return result
 
-# Создание случайного массива размером 2500
+# Здесь для примера создадим два случайных массива размером 2500
 n = 2500
-arr = [random.randint(0, 100000) for _ in range(n)]
+arr1 = [random.randint(0, 100000) for _ in range(n)]
+arr2 = [random.randint(0, 100000) for _ in range(n)]
 
+sorted_arr1 = merge_sort(arr1)
+sorted_arr2 = merge_sort(arr2)
+
+# Создание третьего массива и его сортировка
+arr3 = sorted_arr1 + sorted_arr2
 start_time = time.time()
-sorted_arr = merge_sort(arr)
+sorted_arr3 = merge_sort(arr3)
 end_time = time.time()
 
-print("Первые 10 элементов отсортированного массива:", sorted_arr[:10])
-print("Время работы:", end_time - start_time)
+print("Слиянием")
+print("Время сортировки третьего массива:", end_time - start_time)
 print("Число сравнений:", comparisons)
 print("Число перестановок:", swaps)
